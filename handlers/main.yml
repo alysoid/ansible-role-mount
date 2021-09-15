@@ -1,0 +1,23 @@
+---
+- name: Reload systemd configuration
+  command: systemctl daemon-reload
+
+- name: Enable systemd mount
+  command: systemctl enable "{{ systemd_mount_filename }}"
+  loop: "{{ systemd_mount }}"
+  notify: Start systemd mount
+
+- name: Start systemd mount
+  command: systemctl start "{{ systemd_mount_filename }}"
+  loop: "{{ systemd_mount }}"
+  notify: Reload systemd configuration
+
+- name: Enable systemd automount
+  command: systemctl enable "{{ systemd_automount_filename }}"
+  loop: "{{ systemd_automount }}"
+  notify: Start systemd automount
+
+- name: Start systemd automount
+  command: systemctl start "{{ systemd_automount_filename }}"
+  loop: "{{ systemd_automount }}"
+  notify: Reload systemd configuration

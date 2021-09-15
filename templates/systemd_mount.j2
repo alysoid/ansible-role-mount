@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+# See systemd.mount(5) for details.
+
+{% for section, settings in systemd_mount_options.items() %}
+[{{ section }}]
+{% for key, value in settings.items() %}
+{{ key }}={{ value }}
+{% endfor %}
+
+{% endfor %}
