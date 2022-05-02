@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
-# See systemd.mount(5) for details.
+# See {{ current_type }}(5) for details.
 
-{% for section, settings in systemd_mount_options.items() %}
+{% for section, settings in current_options.items() %}
 [{{ section }}]
 {% for key, value in settings.items() %}
 {{ key }}={{ value }}

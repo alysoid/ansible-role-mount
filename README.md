@@ -6,12 +6,10 @@ Unit configuration files which name ends in `.mount` encodes information about a
 
 ## Role variables
 
-| Variable            | Default     | Info
-| ----------------    | ---------   | ----------------
-| `systemd_mount`     | `undefined` | Generate `.mount` systemd unit files.
-| `systemd_automount` | `undefined` | Generate `.automount` systemd unit files.
-
----
+| Variable            | Default | Info                                      |
+| ------------------- | ------- | ----------------------------------------- |
+| `systemd_mount`     | `[]`    | Generate `.mount` systemd unit files.     |
+| `systemd_automount` | `[]`    | Generate `.automount` systemd unit files. |
 
 ### `systemd_mount`
 
