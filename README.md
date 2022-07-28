@@ -8,15 +8,15 @@ Unit configuration files which name ends in `.mount` encodes information about a
 
 | Variable            | Default | Info                                      |
 | ------------------- | ------- | ----------------------------------------- |
-| `systemd_mount`     | `[]`    | Generate `.mount` systemd unit files.     |
-| `systemd_automount` | `[]`    | Generate `.automount` systemd unit files. |
+| `catena_mount`      | `[]`    | Generate `.mount` systemd unit files.     |
+| `catena_automount`  | `[]`    | Generate `.automount` systemd unit files. |
 
-### `systemd_mount`
+### `catena_mount`
 
 Basic usage to mount `/dev/sda` on `/mnt/storage`:
 
 ```yaml
-systemd_mount:
+catena_mount:
   - name: Storage
     # Dictionary of options to compile the systemd unit file
     options:
@@ -32,12 +32,12 @@ systemd_mount:
         Options: defaults
 ```
 
-### `systemd_automount`
+### `catena_automount`
 
 Basic usage to automount `/dev/sda` on `/mnt/storage`:
 
 ```yaml
-systemd_automount:
+catena_automount:
   - name: Storage
     # Dictionary of options to compile the systemd unit file
     options:

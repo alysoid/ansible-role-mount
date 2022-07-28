@@ -1,18 +1,18 @@
 ---
 # Define default mount options
-systemd_mount_options_defaults:
+catena_mount_options_defaults:
   Unit:
     Description: "Mount {{ item.name }}"
 
 # Define default automount options
-systemd_automount_options_defaults:
+catena_automount_options_defaults:
   Unit:
     Description: "Automount {{ item.name }}"
 
 # Combine default values with user defined settings
-systemd_mount_options: "{{ systemd_mount_options_defaults | combine(item.options | default({})) }}"
-systemd_automount_options: "{{ systemd_automount_options_defaults | combine(item.options | default({})) }}"
+catena_mount_options: "{{ catena_mount_options_defaults | combine(item.options | default({})) }}"
+catena_automount_options: "{{ catena_automount_options_defaults | combine(item.options | default({})) }}"
 
 # Generate unit filename for mounts and automounts
-systemd_mount_filename: "{{ item.options.Mount.Where[1:] | replace('/', '-') }}.mount"
-systemd_automount_filename: "{{ item.options.Automount.Where[1:] | replace('/', '-') }}.automount"
+catena_mount_filename: "{{ item.options.Mount.Where[1:] | replace('/', '-') }}.mount"
+catena_automount_filename: "{{ item.options.Automount.Where[1:] | replace('/', '-') }}.automount"
